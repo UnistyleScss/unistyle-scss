@@ -1,3 +1,5 @@
+// Modified mixins by Jonathan Suh https://www.smashingmagazine.com/2015/06/responsive-typography-with-sass-maps/
+
 @mixin font-family($type) {
   @if map-has-key($fonts, $type) {
     @if (variable-exist(fallbackFontFamily)) {
