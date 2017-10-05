@@ -1,0 +1,8 @@
+@import 
+'settings/index',
+'base/index',
+'mixins/index';
+
+@if (variable-exists(shouldIncludeNormalize) and $shouldIncludeNormalize == true) {
+	@include normalize;
+}

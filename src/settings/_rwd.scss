@@ -1,0 +1,10 @@
+// RWD settings
+$break-small-mobile: 480px !default;
+$break-mobile: 767px !default;
+$break-desktop: 1050px !default;
+
+$breakpoints: (
+  'phone': '(max-width: #{$break-small-mobile})',
+  'tablet': '(min-width: #{$break-mobile + 1}) and (max-width: #{$break-desktop - 1})',
+  'desktop': '(min-width: #{$break-desktop})'
+);

@@ -1,0 +1,24 @@
+@mixin vertical-align {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin middle-align {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin vertical-align-children {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@mixin middle-align-children {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

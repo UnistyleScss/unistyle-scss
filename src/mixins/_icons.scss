@@ -1,0 +1,36 @@
+$iconFamily: 'fontawesome' !default;
+$iconPrefix: 'icon-' !default;
+$iconFamilyClass: '.fa' !default;
+
+@mixin icon($icon, $position, $replace: false) {
+  @if $replace {
+    font-size: 0;
+  }
+
+  @if (variable-exist(iconFamilyClass)) {
+    @extend #{$iconFamilyClass};
+  }
+  
+  &:#{$position} {
+    @extend .#{$iconPrefix}#{$icon}:before !optional;
+
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+
+    font-family: #{$iconFamily};
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1;
+    speak: none;
+    text-rendering: auto;
+    text-transform: none;
+    vertical-align: middle;
+
+    @if $replace {
+      font-size: 1.75rem;
+    }
+
+    @content;
+  }
+}

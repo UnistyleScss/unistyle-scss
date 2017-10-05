@@ -1,0 +1,17 @@
+{
+  "name": "Unistyle",
+  "version": "0.0.1",
+  "repository": "https://github.com/UnistyleScss/unistyle-scss.git",
+  "description": "",
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "dev": "gulp",
+    "styles": "gulp styles"
+  },
+  "devDependencies": {
+    "gulp": "3.9.1",
+    "gulp-sass": "2.3.2",
+    "gulp-sass-lint": "1.3.2"
+  }
+}

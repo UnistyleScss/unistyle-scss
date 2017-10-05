@@ -1,0 +1,30 @@
+@mixin scrollbars($size, $foreground-color, $background-color, $alwaysVisibleIfScrollable: false) {
+  $height: null;
+  $width: null;
+
+  @if type-of($size) == 'list' {
+    $height: nth($size, 2);
+    $width: nth($size, 1);
+  } @else {
+    $height: $size;
+    $width: $size;
+  }
+
+  &::-webkit-scrollbar {
+    height: $height;
+    width:  $width;
+
+    @if ($alwaysVisibleIfScrollable) {
+      -webkit-appearance: none; //Always visible on webkit
+    }
+
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $background-color;
+  }
+}

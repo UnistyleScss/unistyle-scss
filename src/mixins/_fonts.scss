@@ -1,0 +1,45 @@
+@mixin font-family($type) {
+  @if map-has-key($fonts, $type) {
+    @if (variable-exist(fallbackFontFamily)) {
+      font-family: map-get($fonts, $type), $fallbackFontFamily;
+    } @else {
+      font-family: map-get($fonts, $type);
+    }
+  } @else { // if the desired $type is not found in the $fonts map and the $type is not an empty value, like '' or null, return a warning
+    @error 'The font-family mixin couldn not find a font of #{$type} type!';
+  }
+};
+
+@mixin font($family, $size: inherit) {
+  @include font-family($family);
+  @include rem(font-size, $size);
+}
+
+@mixin font-size($fs-map, $fs-breakpoints: $breakpoints) {
+  @each $fs-breakpoint, $fs-font-size in $fs-map {
+    @if $fs-breakpoint == null {
+      @include make-font-size($fs-font-size);
+    } @else if map-has-key($fs-breakpoints, $fs-breakpoint) {
+      @include media-to($fs-breakpoint) {
+        @include make-font-size($fs-font-size);
+      }
+    } @else {
+      @error 'Invalid breakpoint';
+    }
+  }
+}
+
+@mixin make-font-size($fs-font-size) {
+  $font-size: nth($fs-font-size, 1);
+  $font-family: nth($fs-font-size, 2);
+
+  @if ($font-family != null) {
+    @include font-family($font-family);
+  }
+  @include rem(font-size, $font-size);
+
+  @if length($fs-font-size) > 2 {
+    $line-height: nth($fs-font-size, 3);
+    @include rem(line-height, $line-height);
+  }
+}

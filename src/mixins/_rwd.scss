@@ -1,0 +1,30 @@
+@mixin media-to($media) {
+  @if map-has-key($breakpoints, $media) {
+    $mediaQuery: map-get($breakpoints, $media);
+    @media screen and #{$mediaQuery} {
+      @content;
+    }
+  } @else {
+    @error 'Unknown breakpoint passed to media-to mixin!';
+  }
+}
+
+@mixin break-by-prop($prop, $map, $shouldConvertToRems: false) {
+  @each $media, $val in $map {
+    @if($media == null) {
+      @if ($shouldConvertToRems) {
+        @include rem(#{$prop}, $val);
+      } @else {
+        #{$prop}: $val;
+      }
+    } @else {
+      @include media-to($media) {
+        @if ($shouldConvertToRems) {
+          @include rem(#{$prop}, $val);
+        } @else {
+          #{$prop}: $val;
+        }
+      }
+      }
+  }
+}
