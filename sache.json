@@ -1,0 +1,5 @@
+{
+    "name": "unistyle",
+    "description": "Unified SCSS codebase that easies setting new projects up",
+    "tags": ["framework", "library", "mixins", "scss", "boilerplate"]
+  }
