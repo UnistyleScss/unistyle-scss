@@ -172,7 +172,7 @@ i {
 }
 
 // output
-i:before {
+i::before {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   font-family: iconmoon;
@@ -189,7 +189,7 @@ i:before {
 i.replaceIcon {
     font-size: 0;
 }
-i.replaceIcon:before {
+i.replaceIcon::before {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     font-family: iconmoon;
@@ -403,13 +403,13 @@ div {
 // output
 
 div {
-  &:before,
-  &:after {
+  &::before,
+  &::after {
     content: ' ';
     display: table;
   }
 
-  &:after {
+  &::after {
     clear: both;
   }
 }

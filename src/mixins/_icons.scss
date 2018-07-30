@@ -1,6 +1,6 @@
-$iconFamily: 'fontawesome' !default;
-$iconPrefix: 'icon-' !default;
-$iconFamilyClass: '.fa' !default;
+$iconFamily: "fontawesome" !default;
+$iconPrefix: "icon-" !default;
+$iconFamilyClass: ".fa" !default;
 
 @mixin icon($icon, $position, $replace: false) {
   @if $replace {
@@ -10,9 +10,9 @@ $iconFamilyClass: '.fa' !default;
   @if (variable-exist(iconFamilyClass)) {
     @extend #{$iconFamilyClass};
   }
-  
-  &:#{$position} {
-    @extend .#{$iconPrefix}#{$icon}:before !optional;
+
+  &::#{$position} {
+    @extend .#{$iconPrefix}#{$icon}::before !optional;
 
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
